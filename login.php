@@ -35,7 +35,7 @@ height:100px;
 width:760px;
 float:left;
 margin-left:300px;
-border:2px dashed #761816;
+//border:2px dashed #761816;
 
 }
 #c
@@ -49,7 +49,7 @@ margin-top:130px;
 font:cursive;
 font-style:none;
 font-size:24px;
-color:#red;
+color:black;
 }
 #d
 {
@@ -72,15 +72,15 @@ width:400px;
 <div>
  
 <div id="a">
-  <center><p><font size="6" color="black">LIBRARY MANAGEMENT SYSTEM OF VIT </font></p></center>
+ <center><p><font size="6" color="black">LIBRARY MANAGEMENT SYSTEM OF VIT </font></p></center>
 </div><br />
 	<div id="b">
-	<br><br><br><br><br><center><p><font size="6" color="black">WELCOME TO VIT LIBRARY</font></p></center>
+	<br><br><br><br><br><center><p><font size="6" color="black">WELCOME VIT LIBRARY</font></p></center>
 	</div>
 	
 		<div id="c">
 		<center>
-		User Login
+		Admin Login
 		</center>
 			<div id="d">
 				<table align="left" >
@@ -111,16 +111,14 @@ if(isset($_POST['q']))
 	$a=$_POST['uname'];
 	$b=$_POST['pwd'];
 	
-	
 	include('connection.php');
-	$q=mysql_query("select * from `adduser` where `Name`='$a' and `Rollno`='$b'");
-	echo "select * from `adduser` where `Name`='$a' and `Rollno`='$b'";
+	$q=mysql_query("select * from `login` where `username`='$a' and `password`='$b'");
+	echo "select * from `login` where `username`='$a' and `password`='$b'";
 	$y=mysql_num_rows($q);
 	if($y>0)
 	{
 		$_SESSION['uname']=$a;
-		$_SESSION['roll']=$b;
-		header('location:userdetails.php');
+		header('location:main.php');
 	}	
 	else
 	{
